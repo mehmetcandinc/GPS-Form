@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 
 type RequiredMark = boolean | 'optional';
 
-function Properties() {
+function Grup() {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] =
     useState<RequiredMark>('optional');
@@ -37,9 +37,9 @@ function Properties() {
       onFinishFailed={onFinishFailed}
       autoComplete='off'>
       <Form.Item
-        label='Cihaz Özellik Adı'
-        name='properties'
-        rules={[{ required: true, message: 'Lütfen Özellik adı girin' }]}>
+        label='Cihaz Grupları'
+        name='grup'
+        rules={[{ required: true, message: 'Lütfen grup adı girin' }]}>
         <Input />
       </Form.Item>
 
@@ -52,4 +52,4 @@ function Properties() {
   );
 }
 
-export default Properties;
+export default Grup;
