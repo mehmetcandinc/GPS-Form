@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Tabs, Select, Form, Input, Button, } from 'antd';
+import { Tabs, Select, Form, Input, Button, Col, Row, } from 'antd';
+import 'lowdb'
 
 type RequiredMark = boolean | 'optional';
 
@@ -48,7 +49,8 @@ const Form1 = () => {
 
         <Form
             name="basic"
-            labelCol={{ span: 8 }}
+            style={{padding:10}}
+            labelCol={{ span: 6 }}
             wrapperCol={{ span: 6 }}
             initialValues={{ remember: true }}
             autoComplete="off"
@@ -72,10 +74,14 @@ const Form1 = () => {
             <Form.Item
                 label="Versiyon"
                 name="versiyon"
-                >
+            >
                 <Input placeholder="Versiyon Giriniz." size="large" onChange={(e: any) => { setVersiyon(e.currentTarget.value) }} />
             </Form.Item>
-            <Button type="primary" htmlType='submit' shape="round" style={{ right: "500px" }}  >Primary Button</Button>
+            <Row>
+                <Col span={6} style={{ textAlign: 'right' }}>
+                    <Button type="primary" htmlType='submit' shape="round" >Primary Button</Button>
+                </Col>
+            </Row>
         </Form>
     )
 }
