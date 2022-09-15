@@ -49,7 +49,7 @@ const Form1 = () => {
 
         <Form
             name="basic"
-            style={{padding:10}}
+            style={{ padding: 10 }}
             labelCol={{ span: 6 }}
             wrapperCol={{ span: 6 }}
             initialValues={{ remember: true }}
