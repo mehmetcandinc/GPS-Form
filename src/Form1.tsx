@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Tabs, Select, Form, Input, Button, Col, Row, } from 'antd';
-import 'lowdb'
 
 type RequiredMark = boolean | 'optional';
 

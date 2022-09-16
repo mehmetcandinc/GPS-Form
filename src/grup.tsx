@@ -3,29 +3,33 @@ import { Input, Form, Tabs, Button, Radio, Checkbox } from 'antd';
 import { Select } from 'antd';
 import 'antd/dist/antd.css';
 
-type RequiredMark = boolean | 'optional';
+
 
 function Grup() {
+  // Read data from JSON file, this will set db.data content
+
   const [form] = Form.useForm();
-  const [requiredMark, setRequiredMarkType] =
-    useState<RequiredMark>('optional');
 
-  const onRequiredTypeChange = ({
-    requiredMarkValue,
-  }: {
-    requiredMarkValue: RequiredMark;
-  }) => {
-    setRequiredMarkType(requiredMarkValue);
-  };
-
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log('Success:', values);
+    fetch('/groupAdd', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json())
+      .then(json => console.log(json));
+    fetch('/getGroup', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: { 'Content-Type': 'application/json' }
+    }).then(res => res.json())
+      .then(json => console.log(json));
+
   };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
-
   return (
     <Form
       layout='vertical'
