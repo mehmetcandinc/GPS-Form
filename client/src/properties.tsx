@@ -20,6 +20,13 @@ function Properties() {
 
   const onFinish = (values: any) => {
     console.log('Success:', values);
+    fetch('/propertiesAdd', {
+      method: 'POST',
+      body: JSON.stringify(values),
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -38,7 +45,7 @@ function Properties() {
       autoComplete='off'>
       <Form.Item
         label='Cihaz Özellik Adı'
-        name='properties'
+        name='name'
         rules={[{ required: true, message: 'Lütfen Özellik adı girin' }]}>
         <Input />
       </Form.Item>
