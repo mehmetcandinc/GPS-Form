@@ -3,8 +3,6 @@ import { Input, Form, Tabs, Button, Radio, Checkbox } from 'antd';
 import { Select } from 'antd';
 import 'antd/dist/antd.css';
 
-
-
 function Grup() {
   // Read data from JSON file, this will set db.data content
 
@@ -15,16 +13,17 @@ function Grup() {
     fetch('/groupAdd', {
       method: 'POST',
       body: JSON.stringify(values),
-      headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.json())
-      .then(json => console.log(json));
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
     fetch('/getGroup', {
       method: 'POST',
       body: JSON.stringify(values),
-      headers: { 'Content-Type': 'application/json' }
-    }).then(res => res.json())
-      .then(json => console.log(json));
-
+      headers: { 'Content-Type': 'application/json' },
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -42,7 +41,7 @@ function Grup() {
       autoComplete='off'>
       <Form.Item
         label='Cihaz Grupları'
-        name='grup'
+        name='name'
         rules={[{ required: true, message: 'Lütfen grup adı girin' }]}>
         <Input />
       </Form.Item>
